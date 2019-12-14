@@ -18,11 +18,14 @@ function populateListings() {
 	var image = document.createElement("img");
 	var tableData2 = document.createElement("td");
 	var tableData3 = document.createElement("td");
+	var tableData4 = document.createElement("td");
+	var checkBox = document.createElement("input")
 	
 	table.appendChild(tableRow);
 	tableRow.appendChild(tableData1);
 	tableRow.appendChild(tableData2);
 	tableRow.appendChild(tableData3);
+	tableRow.appendChild(tableData4);
 	
 	var styleElem = document.head.appendChild(document.createElement("style"));
 
@@ -31,13 +34,20 @@ function populateListings() {
 	image.setAttribute("src", listing.image);
 	image.setAttribute("height", "300px");
 	image.setAttribute("width", "auto");
+	
+	checkBox.setAttribute("type", "checkbox");
+	checkBox.setAttribute("name", "reserve");
+	checkBox.setAttribute("value", "true");
+	var checkBoxText = document.createTextNode("Schedule this property");
+	checkBox.appendChild(checkBoxText);
 
 	var address = document.createTextNode(listing.address);
 	var description = document.createTextNode(listing.description);
 	
-	tableData1.appendChild(image);
-	tableData2.appendChild(address);
-	tableData3.appendChild(description);
+	tableData1.appendChild(checkBox);
+	tableData2.appendChild(image);
+	tableData3.appendChild(address);
+	tableData4.appendChild(description);
 	
 	// End loop
 }
