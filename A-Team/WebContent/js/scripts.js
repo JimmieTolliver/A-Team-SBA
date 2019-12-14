@@ -8,23 +8,24 @@ function populateListings() {
 		this.time = null;
 	}
 
-	var listing1 = new Listing("./images/test.jpg", "1234 Main St",
+	var listing1 = new Listing("./images/test1.jpg", "1234 Main St",
 			"cool location", 1234);
-	var listing2 = new Listing("./images/test.jpg", "4321 1st Ave",
+	var listing2 = new Listing("./images/test2.jpg", "4321 1st Ave",
 			"cool location", 1234);
-	var listing3 = new Listing("./images/test.jpg", "6789 Townsquare",
+	var listing3 = new Listing("./images/test3.jpg", "6789 Townsquare",
 			"cool location", 1234);
-	var listing4 = new Listing("./images/test.jpg", "9156 Central Ave",
+	var listing4 = new Listing("./images/test4.jpg", "9156 Central Ave",
 			"cool location", 1234);
 
-	// TODO Start loop
 	var listingCollection = [ listing1, listing2, listing3, listing4 ];
 
-	listingCollection.forEach(displayListings);
+	// listingCollection.forEach(displayListings);
 
-	function displayListings(displayListings) {
+	// function displayListings() {
 
-		var table = document.getElementById("listings");
+	var table = document.getElementById("listings");
+
+	for (var index = 0; index < listingCollection.length; index++) {
 		var tableRow = document.createElement("tr");
 		var tableData1 = document.createElement("td");
 		var image = document.createElement("img");
@@ -33,8 +34,8 @@ function populateListings() {
 		var tableData4 = document.createElement("td");
 		var tableData5 = document.createElement("td");
 		var checkBox = document.createElement("input")
-		var address = document.createTextNode(listing1.address);
-		var description = document.createTextNode(listing1.description);
+		var address = document.createTextNode(listingCollection[index].address);
+		var description = document.createTextNode(listingCollection[index].description);
 
 		table.appendChild(tableRow);
 		tableRow.appendChild(tableData1);
@@ -43,60 +44,59 @@ function populateListings() {
 		tableRow.appendChild(tableData4);
 		tableRow.appendChild(tableData5);
 
-		var styleElem = document.head.appendChild(document
-				.createElement("style"));
+		var styleElem = document.head.appendChild(document.createElement("style"));
 
 		styleElem.innerHTML = "td {border: 1px solid black; padding: 20px;}";
 
 		// Need to update the listing object name to match the ones in the
 		// array. Should make the list of if's switch cases
-		for (var i = 1; i < listingCollection.length + 1; i++) {
-			
-			 console.log(listingCollection.indexOf(listing1));
-			if (i === 1) {
-				image.setAttribute("src", listing1.image);
-				image.setAttribute("height", "300px");
-				image.setAttribute("width", "auto");
-			}
-			
-			if (i === 2) {
-				image.setAttribute("src", listing2.image);
-				image.setAttribute("height", "300px");
-				image.setAttribute("width", "auto");
-			}
-			
-			if (i === 3) {
-				image.setAttribute("src", listing3.image);
-				image.setAttribute("height", "300px");
-				image.setAttribute("width", "auto");
-			}
-			
-			if (i === 4) {
-				image.setAttribute("src", listing4.image);
-				image.setAttribute("height", "300px");
-				image.setAttribute("width", "auto");
-			}
+		// for (var i = 1; i < listingCollection.length + 1; i++) {
 
-			checkBox.setAttribute("type", "checkbox");
-			checkBox.setAttribute("name", "reserve");
-			checkBox.setAttribute("value", "true");
-			var checkBoxText = document.createTextNode("Schedule this property");
-			checkBox.appendChild(checkBoxText);
+		// console.log(listingCollection.indexOf(listing1));
+		// if (i === 1) {
+		image.setAttribute("src", listingCollection[index].image);
+		image.setAttribute("height", "300px");
+		image.setAttribute("width", "auto");
+		// }
+		//			
+		// if (i === 2) {
+		// image.setAttribute("src", listing2.image);
+		// image.setAttribute("height", "300px");
+		// image.setAttribute("width", "auto");
+		// }
+		//			
+		// if (i === 3) {
+		// image.setAttribute("src", listing3.image);
+		// image.setAttribute("height", "300px");
+		// image.setAttribute("width", "auto");
+		// }
+		//			
+		// if (i === 4) {
+		// image.setAttribute("src", listing4.image);
+		// image.setAttribute("height", "300px");
+		// image.setAttribute("width", "auto");
+		// }
 
-			// Need to figure out how to pass this info in the if statements so that
-			// the same listing.address is not copied on each listing. 
-			
-//			var address = document.createTextNode(listing1.address);
-//			var description = document.createTextNode(listing1.description);
+		checkBox.setAttribute("type", "checkbox");
+		checkBox.setAttribute("name", "reserve");
+		checkBox.setAttribute("value", "true");
+		var checkBoxText = document.createTextNode("Schedule this property");
+		checkBox.appendChild(checkBoxText);
 
-			tableData1.appendChild(checkBox);
-			tableData2.appendChild(image);
-			tableData3.appendChild(address);
-			tableData4.appendChild(description);
-		}
+		// Need to figure out how to pass this info in the if statements so
+		// that
+		// the same listing.address is not copied on each listing.
 
+		var address = document.createTextNode(listingCollection[index].address);
+		var description = document.createTextNode(listingCollection[index].description);
+
+		tableData1.appendChild(checkBox);
+		tableData2.appendChild(image);
+		tableData3.appendChild(address);
+		tableData4.appendChild(description);
 	}
-	// TODO End loop
+
+	// }
 }
 
 function scheduleShowing() {
