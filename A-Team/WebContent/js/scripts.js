@@ -11,7 +11,7 @@ function populateListings() {
 	var listing = new Listing("./images/test.jpg", "1234 Main St", "cool location", 1234); 
 
 
-	// Start loop
+	//TODO Start loop
 	var table = document.getElementById("listings");
 	var tableRow = document.createElement("tr");
 	var tableData1 = document.createElement("td");
@@ -51,9 +51,9 @@ function populateListings() {
 	tableData3.appendChild(address);
 	tableData4.appendChild(description);
 	
-	// End loop
+	//TODO End loop
 }
 
 function scheduleShowing(){
-	//TODO this reads selections on listing.html and uses those selections to populate conformatin.html
+	//TODO this reads selections on listing.html and uses those selections to populate confirmation.html
 }
