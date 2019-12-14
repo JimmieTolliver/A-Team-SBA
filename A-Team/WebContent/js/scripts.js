@@ -15,10 +15,6 @@ function populateListings() {
 	var image = document.createElement("img");
 	var tableData2 = document.createElement("td");
 	var tableData3 = document.createElement("td");
-//	var tableData4 = dosument.ceateElement("td");
-//	var checkBox = document.createElement("input");
-//	
-//	tableData4.appendChild(checkBox);
 	
 	table.appendChild(tableRow);
 	tableRow.appendChild(tableData1);
@@ -32,14 +28,6 @@ function populateListings() {
 	image.setAttribute("src", listing.image);
 	image.setAttribute("height", "300px");
 	image.setAttribute("width", "auto");
-	
-//	checkBox.setAttribute("type", "checkbox");
-//	checkBox.setAttribute("name", "reserve");
-//	checkBox.setAttribute("value", "true");
-//	var checkBoxText = document.createTextNode("Schedule this property");
-//	checkBox.appendChild(checkBoxText);
-	
-	
 
 	var address = document.createTextNode(listing.address);
 	var description = document.createTextNode(listing.description);
