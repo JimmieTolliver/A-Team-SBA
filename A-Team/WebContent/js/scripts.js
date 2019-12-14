@@ -1,6 +1,6 @@
 function populateListings() {
 	
-	funtion Listing(image, address, description, lockbox) {
+	function Listing(image, address, description, lockbox) {
 		this.image = image;
 		this.address = address;
 		this.description = description;
