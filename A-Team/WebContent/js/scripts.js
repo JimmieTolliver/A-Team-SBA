@@ -19,6 +19,7 @@ function populateListings() {
 	var tableData2 = document.createElement("td");
 	var tableData3 = document.createElement("td");
 	var tableData4 = document.createElement("td");
+	var tableData5 = document.createElement("td");
 	var checkBox = document.createElement("input")
 	
 	table.appendChild(tableRow);
@@ -26,6 +27,7 @@ function populateListings() {
 	tableRow.appendChild(tableData2);
 	tableRow.appendChild(tableData3);
 	tableRow.appendChild(tableData4);
+	tableRow.appendChild(tableData5);
 	
 	var styleElem = document.head.appendChild(document.createElement("style"));
 
@@ -50,4 +52,8 @@ function populateListings() {
 	tableData4.appendChild(description);
 	
 	// End loop
+}
+
+function scheduleShowing(){
+	//TODO this reads selections on listing.html and uses those selections to populate conformatin.html
 }
