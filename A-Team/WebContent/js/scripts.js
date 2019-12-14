@@ -1,12 +1,15 @@
 function populateListings() {
-	var listing = {
-		//Hard coded some test data in the object for now
-		image : "./images/test.jpg",
-		address : "1234 Main St",
-		description : "cool location",
-		lockbox : 1234,
-		time : "12:30"
-	};
+	
+	funtion Listing(image, address, description, lockbox) {
+		this.image = image;
+		this.address = address;
+		this.description = description;
+		this.lockbox = lockbox;
+		this.time = null;
+	}
+
+	var listing = new Listing("./images/test.jpg", "1234 Main St", "cool location", 1234); 
+
 
 	// Start loop
 	var table = document.getElementById("listings");
@@ -36,5 +39,5 @@ function populateListings() {
 	tableData2.appendChild(address);
 	tableData3.appendChild(description);
 	
-	//End loop
+	// End loop
 }
