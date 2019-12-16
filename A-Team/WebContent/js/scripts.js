@@ -96,6 +96,28 @@ function populateListings() {
 		tableData2.appendChild(image);
 		tableData3.appendChild(address);
 		tableData4.appendChild(description);
+		
+		// Add dropdown menu with times
+		tableData5.setAttribute("id", "times");
+		
+		var div = document.getElementById("times");
+		var select = document.createElement("select");
+
+		div.appendChild(select);
+
+		 var option1 = document.createElement("option");
+		 var text1 = document.createTextNode("12:00 PM");
+		 select.appendChild(option1);
+		 option1.appendChild(text1);
+
+		for(var i = 1; i < 7; i++){
+		  var option = document.createElement("option");
+		  var text = document.createTextNode(i+":00 PM");
+		    select.appendChild(option);
+		    option.appendChild(text);
+		}
+		
+		tableData5.appendChild(select);
 	}
 
 	// }
