@@ -55,8 +55,9 @@ function populateListings() {
 		// console.log(listingCollection.indexOf(listing1));
 		// if (i === 1) {
 		image.setAttribute("src", listingCollection[index].image);
-		image.setAttribute("height", "300px");
-		image.setAttribute("width", "auto");
+		image.setAttribute("height", "auto");
+		image.setAttribute("width", "70%");
+		
 		// }
 		//			
 		// if (i === 2) {
