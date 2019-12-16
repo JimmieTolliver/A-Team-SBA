@@ -6,6 +6,7 @@ function populateListings() {
 		this.description = description;
 		this.lockbox = lockbox;
 		this.time = null;
+		this.selected = false;
 	}
 
 	var listing1 = new Listing("./images/test1.jpg", "1234 Main St",
