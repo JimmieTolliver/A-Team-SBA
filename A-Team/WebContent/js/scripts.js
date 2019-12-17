@@ -1,129 +1,163 @@
 function populateListings() {
 
-	function Listing(image, address, description, lockbox) {
-		this.image = image;
-		this.address = address;
-		this.description = description;
-		this.lockbox = lockbox;
-		this.time = null;
-		this.selected = false;
-	}
+  function Listing(image, address, description, lockbox) {
+    this.image = image;
+    this.address = address;
+    this.description = description;
+    this.lockbox = lockbox;
+    this.time = "null";
+    this.selected = false;
+  }
 
-	var listing1 = new Listing("./images/test1.jpg", "1234 Main St",
-			"cool location", 1234);
-	var listing2 = new Listing("./images/test2.jpg", "4321 1st Ave",
-			"cool location", 1234);
-	var listing3 = new Listing("./images/test3.jpg", "6789 Townsquare",
-			"cool location", 1234);
-	var listing4 = new Listing("./images/test4.jpg", "9156 Central Ave",
-			"cool location", 1234);
+  var listing1 = new Listing("./images/test1.jpg", "1234 Main St",
+    "cool location", 1234);
+  var listing2 = new Listing("./images/test2.jpg", "4321 1st Ave",
+    "cool location", 1234);
+  var listing3 = new Listing("./images/test3.jpg", "6789 Townsquare",
+    "cool location", 1234);
+  var listing4 = new Listing("./images/test4.jpg", "9156 Central Ave",
+    "cool location", 1234);
 
-	var listingCollection = [ listing1, listing2, listing3, listing4 ];
+  var listingCollection = [listing1, listing2, listing3, listing4];
 
-	// listingCollection.forEach(displayListings);
+  var table = document.getElementById("listings");
 
-	// function displayListings() {
+  for (var index = 0; index < listingCollection.length; index++) {
+    var tableRow = document.createElement("tr");
+    var tableData1 = document.createElement("td");
+    var image = document.createElement("img");
+    var tableData2 = document.createElement("td");
+    var tableData3 = document.createElement("td");
+    var tableData4 = document.createElement("td");
+    var tableData5 = document.createElement("td");
+    var checkBox = document.createElement("input")
+    var address = document.createTextNode(listingCollection[index].address);
+    var description = document.createTextNode(listingCollection[index].description);
 
-	var table = document.getElementById("listings");
+    table.appendChild(tableRow);
+    tableRow.appendChild(tableData1);
+    tableRow.appendChild(tableData2);
+    tableRow.appendChild(tableData3);
+    tableRow.appendChild(tableData4);
+    tableRow.appendChild(tableData5);
 
-	for (var index = 0; index < listingCollection.length; index++) {
-		var tableRow = document.createElement("tr");
-		var tableData1 = document.createElement("td");
-		var image = document.createElement("img");
-		var tableData2 = document.createElement("td");
-		var tableData3 = document.createElement("td");
-		var tableData4 = document.createElement("td");
-		var tableData5 = document.createElement("td");
-		var checkBox = document.createElement("input")
-		var address = document.createTextNode(listingCollection[index].address);
-		var description = document.createTextNode(listingCollection[index].description);
+    var styleElem = document.head.appendChild(document.createElement("style"));
 
-		table.appendChild(tableRow);
-		tableRow.appendChild(tableData1);
-		tableRow.appendChild(tableData2);
-		tableRow.appendChild(tableData3);
-		tableRow.appendChild(tableData4);
-		tableRow.appendChild(tableData5);
+    styleElem.innerHTML = "td {border: 1px solid black; padding: 20px;}";
 
-		var styleElem = document.head.appendChild(document.createElement("style"));
+    image.setAttribute("src", listingCollection[index].image);
+    image.setAttribute("height", "auto");
+    image.setAttribute("width", "70%");
 
-		styleElem.innerHTML = "td {border: 1px solid black; padding: 20px;}";
+    checkBox.setAttribute("type", "checkbox");
+    checkBox.setAttribute("name", "reserve");
+    // checkBox.setAttribute("value", "checked");
+    var checkBoxText = document.createTextNode("Schedule this property");
+    checkBox.appendChild(checkBoxText);
 
-		// Need to update the listing object name to match the ones in the
-		// array. Should make the list of if's switch cases
-		// for (var i = 1; i < listingCollection.length + 1; i++) {
+    var address = document.createTextNode(listingCollection[index].address);
+    var description = document.createTextNode(listingCollection[index].description);
 
-		// console.log(listingCollection.indexOf(listing1));
-		// if (i === 1) {
-		image.setAttribute("src", listingCollection[index].image);
-		image.setAttribute("height", "auto");
-		image.setAttribute("width", "70%");
-		
-		// }
-		//			
-		// if (i === 2) {
-		// image.setAttribute("src", listing2.image);
-		// image.setAttribute("height", "300px");
-		// image.setAttribute("width", "auto");
-		// }
-		//			
-		// if (i === 3) {
-		// image.setAttribute("src", listing3.image);
-		// image.setAttribute("height", "300px");
-		// image.setAttribute("width", "auto");
-		// }
-		//			
-		// if (i === 4) {
-		// image.setAttribute("src", listing4.image);
-		// image.setAttribute("height", "300px");
-		// image.setAttribute("width", "auto");
-		// }
+    tableData1.appendChild(checkBox);
+    tableData2.appendChild(image);
+    tableData3.appendChild(address);
+    tableData4.appendChild(description);
 
-		checkBox.setAttribute("type", "checkbox");
-		checkBox.setAttribute("name", "reserve");
-		checkBox.setAttribute("value", "true");
-		var checkBoxText = document.createTextNode("Schedule this property");
-		checkBox.appendChild(checkBoxText);
+    // Add dropdown menu with times
+    tableData5.setAttribute("id", "times");
 
-		// Need to figure out how to pass this info in the if statements so
-		// that
-		// the same listing.address is not copied on each listing.
+    var div = document.getElementById("times");
+    var select = document.createElement("select");
 
-		var address = document.createTextNode(listingCollection[index].address);
-		var description = document.createTextNode(listingCollection[index].description);
+    div.appendChild(select);
 
-		tableData1.appendChild(checkBox);
-		tableData2.appendChild(image);
-		tableData3.appendChild(address);
-		tableData4.appendChild(description);
-		
-		// Add dropdown menu with times
-		tableData5.setAttribute("id", "times");
-		
-		var div = document.getElementById("times");
-		var select = document.createElement("select");
+    var option1 = document.createElement("option");
+    var text1 = document.createTextNode("12:00 PM");
+    select.appendChild(option1);
+    option1.appendChild(text1);
+    option1.setAttribute("value", "12:00 PM");
+    option1.setAttribute("name", "time");
 
-		div.appendChild(select);
+    for (var i = 1; i < 7; i++) {
+      var option = document.createElement("option");
+      var setTime = i + ":00 PM";
+      var text = document.createTextNode(setTime);
+      select.appendChild(option);
+      option.appendChild(text);
+      option.setAttribute("value", i + ":00PM");
+      option.setAttribute("name", "time");
+    }
 
-		 var option1 = document.createElement("option");
-		 var text1 = document.createTextNode("12:00 PM");
-		 select.appendChild(option1);
-		 option1.appendChild(text1);
+    tableData5.appendChild(select);
+  }
 
-		for(var i = 1; i < 7; i++){
-		  var option = document.createElement("option");
-		  var text = document.createTextNode(i+":00 PM");
-		    select.appendChild(option);
-		    option.appendChild(text);
-		}
-		
-		tableData5.appendChild(select);
-	}
+  localStorage.setItem('listingCollection', JSON.stringify(listingCollection));
 
-	// }
 }
 
-function scheduleShowing() {
-	// TODO this reads selections on listing.html and uses those selections to
-	// populate confirmation.html
+function populateShowings() {
+  var table = document.getElementById("listings");
+
+  var retrievedObject = localStorage.getItem('listingCollection');
+  var listings = JSON.parse(retrievedObject);
+  // console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+  var checked = document.getElementsByName("reserve");
+  var checkedListings = [];
+
+  for (var i = 0; i < listings.length; i++) {
+    if (checked[i].checked) {
+      for (var j = 0 + i * 7; j < 7 + i * 7; j++) {
+        if (document.getElementsByName("time")[j].selected) {
+          listings[i].time = document.getElementsByName("time")[j].textContent;
+        }
+      }
+      checkedListings.push(listings[i]);
+    }
+  }
+  ////////////////////////////NEW OLD STUFF
+
+  var table = document.getElementById("listings");
+
+  //REMOVE CHILD
+  var list = document.querySelector("table");
+  var child = list.lastElementChild;
+  while (child) {
+    list.removeChild(child);
+    child = list.lastElementChild;
+  }
+
+  for (var index = 0; index < checkedListings.length; index++) {
+    var tableRow = document.createElement("tr");
+
+    var image = document.createElement("img");
+    var tableData2 = document.createElement("td");
+    var tableData3 = document.createElement("td");
+    var tableData4 = document.createElement("td");
+    var address = document.createTextNode(checkedListings[index].address);
+    var time = document.createTextNode(checkedListings[index].time);
+
+    table.appendChild(tableRow);
+
+    tableRow.appendChild(tableData2);
+    tableRow.appendChild(tableData3);
+    tableRow.appendChild(tableData4);
+
+    var styleElem = document.head.appendChild(document.createElement("style"));
+
+    // styleElem.innerHTML = "td {border: 1px solid black; padding: 20px;}";
+
+    var address = document.createTextNode(checkedListings[index].address);
+    var lockbox = document.createTextNode(checkedListings[index].time);
+    var lockbox = document.createTextNode(checkedListings[index].lockbox);
+
+    tableData2.appendChild(address);
+    tableData3.appendChild(time);
+    tableData4.appendChild(lockbox);
+
+  }
+
+  // console.log(checkedListings);
+
+  localStorage.clear();
 }
