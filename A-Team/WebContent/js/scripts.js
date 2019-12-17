@@ -12,11 +12,11 @@ function populateListings() {
   var listing1 = new Listing("./images/test1.jpg", "1234 Main St",
     "cool location", 1234);
   var listing2 = new Listing("./images/test2.jpg", "4321 1st Ave",
-    "cool location", 1234);
+    "cool location", 2145);
   var listing3 = new Listing("./images/test3.jpg", "6789 Townsquare",
-    "cool location", 1234);
+    "cool location", 4532);
   var listing4 = new Listing("./images/test4.jpg", "9156 Central Ave",
-    "cool location", 1234);
+    "cool location", 5567);
 
   var listingCollection = [listing1, listing2, listing3, listing4];
 
@@ -28,7 +28,7 @@ function populateListings() {
     var image = document.createElement("img");
     var tableData2 = document.createElement("td");
     var tableData3 = document.createElement("td");
-    var tableData4 = document.createElement("td");
+//    var tableData4 = document.createElement("td");
     var tableData5 = document.createElement("td");
     var checkBox = document.createElement("input")
     var address = document.createTextNode(listingCollection[index].address);
@@ -38,12 +38,13 @@ function populateListings() {
     tableRow.appendChild(tableData1);
     tableRow.appendChild(tableData2);
     tableRow.appendChild(tableData3);
-    tableRow.appendChild(tableData4);
+    //tableRow.appendChild(tableData4);
     tableRow.appendChild(tableData5);
 
     var styleElem = document.head.appendChild(document.createElement("style"));
 
-    styleElem.innerHTML = "td {border: 1px solid black; padding-right: 10px; text-align:center;}";
+//    styleElem.innerHTML = "th {text-align:center;}";
+    styleElem.innerHTML = "td {padding-bottom:20px; text-align:center;}";
 
     image.setAttribute("src", listingCollection[index].image);
     image.setAttribute("height", "auto");
@@ -63,7 +64,7 @@ function populateListings() {
     tableData1.appendChild(checkBox);
     tableData2.appendChild(image);
     tableData3.appendChild(address);
-    tableData4.appendChild(description);
+    //tableData4.appendChild(description);
 
     // Add dropdown menu with times
     tableData5.setAttribute("id", "times");
