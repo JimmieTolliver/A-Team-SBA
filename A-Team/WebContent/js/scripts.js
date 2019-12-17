@@ -128,6 +128,24 @@ function populateShowings() {
     list.removeChild(child);
     child = list.lastElementChild;
   }
+  
+  //Add column headers
+  var tableHeaderRow = document.createElement("tr");
+  var tableHeader1 = document.createElement("th");
+  var tableHeader2 = document.createElement("th");
+  var tableHeader3 = document.createElement("th");
+  var addressHeader = document.createTextNode("Address");
+  var timeHeader = document.createTextNode("Scheduled Time");
+  var lockboxHeader = document.createTextNode("Lock Box Code");
+  
+  table.appendChild(tableHeaderRow);
+  tableHeaderRow.appendChild(tableHeader1);
+  tableHeader1.appendChild(addressHeader);
+  tableHeaderRow.appendChild(tableHeader2);
+  tableHeader2.appendChild(timeHeader);
+  tableHeaderRow.appendChild(tableHeader3);
+  tableHeader3.appendChild(lockboxHeader);
+  
 
   for (var index = 0; index < checkedListings.length; index++) {
     var tableRow = document.createElement("tr");
@@ -145,7 +163,7 @@ function populateShowings() {
 
     var styleElem = document.head.appendChild(document.createElement("style"));
 
-    // styleElem.innerHTML = "td {border: 1px solid black; padding: 20px;}";
+    styleElem.innerHTML = "th, td {padding-right: 20px;}";
 
     var address = document.createTextNode(checkedListings[index].address);
     var lockbox = document.createTextNode(checkedListings[index].time);
