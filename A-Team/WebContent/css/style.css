@@ -92,9 +92,23 @@
 }
 
 input, textarea {
-	background-color: rgba(150, 150, 150, 0.7);
+	background-color: rgba(255, 255, 255, 0.6);
 }
 
 th{
 	text-align:center;
+}
+.contact-form {
+	width: 150px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: blue;
+  opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: blue;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: blue;
 }
