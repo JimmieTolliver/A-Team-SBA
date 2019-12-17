@@ -185,5 +185,5 @@ function populateShowings() {
 
 function sendMessage() {
 	  var name = document.getElementById("fname").value;
-	  alert("Thank you " + fname + "! Your message has been sent!")
+	  alert("Thank you " + name + "! Your message has been sent!");
 	}
