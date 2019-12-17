@@ -43,11 +43,13 @@ function populateListings() {
 
     var styleElem = document.head.appendChild(document.createElement("style"));
 
-    styleElem.innerHTML = "td {border: 1px solid black; padding: 20px;}";
+    styleElem.innerHTML = "td {border: 1px solid black; padding-right: 10px; text-align:center;}";
 
     image.setAttribute("src", listingCollection[index].image);
     image.setAttribute("height", "auto");
     image.setAttribute("width", "70%");
+    
+//    tableData1.setAttribute("padding:0");
 
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "reserve");
@@ -129,8 +131,6 @@ function populateShowings() {
 
   for (var index = 0; index < checkedListings.length; index++) {
     var tableRow = document.createElement("tr");
-
-    var image = document.createElement("img");
     var tableData2 = document.createElement("td");
     var tableData3 = document.createElement("td");
     var tableData4 = document.createElement("td");
