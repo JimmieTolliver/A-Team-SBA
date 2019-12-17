@@ -182,3 +182,8 @@ function populateShowings() {
 
   localStorage.clear();
 }
+
+function sendMessage() {
+	  var name = document.getElementById("fname").value;
+	  alert("Thank you " + fname + "! Your message has been sent!")
+	}
