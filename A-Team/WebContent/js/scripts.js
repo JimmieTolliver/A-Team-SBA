@@ -158,6 +158,9 @@ function populateShowings() {
   }
 
   // console.log(checkedListings);
+  
+  var element = document.getElementById("button");
+  element.parentNode.removeChild(element);
 
   localStorage.clear();
 }
