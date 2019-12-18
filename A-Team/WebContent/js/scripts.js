@@ -10,7 +10,7 @@ function populateListings() {
   }
 
   var listing1 = new Listing("./images/test1.jpg", "1234 Main St",
-    "cool location", 1234);
+    "cool location", 1325);
   var listing2 = new Listing("./images/test2.jpg", "4321 1st Ave",
     "cool location", 2145);
   var listing3 = new Listing("./images/test3.jpg", "6789 Townsquare",
@@ -138,6 +138,12 @@ function populateShowings() {
   var addressHeader = document.createTextNode("Address");
   var timeHeader = document.createTextNode("Scheduled Time");
   var lockboxHeader = document.createTextNode("Lock Box Code");
+  
+  // adding attributes when building the DOM
+  var att = document.createAttribute("class");
+  att.value = "confirm-table";
+//  var thStyle = document.getElementsByTagName("th")[0];
+  tableHeaderRow.setAttributeNode(att);
   
   table.appendChild(tableHeaderRow);
   tableHeaderRow.appendChild(tableHeader1);

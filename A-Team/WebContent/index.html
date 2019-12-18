@@ -28,11 +28,15 @@
 	<div class="login-block">
 		<h1>Agent Login</h1>
 		<form action="listing.html" onsubmit="return validate()">
-			<input type="text" name="name" value="" placeholder="Username" id="username" required />
+			<input type="text" name="name" value="" placeholder="Username"
+				id="username" required />
 			<!-- <input type="password" value="" placeholder="password" id="password" /> -->
-			
-			<input type="password" id="password" name="pass" value="" placeholder="1# Spec.char.& Capital letter" required />
-		<button onclick="return validate()">Login</button>
+			<div class="tooltip">
+			<span class="tooltiptext">You must include one number, one capital letter and one special character.</span>
+				<input class="tooltip" type="password" id="password" name="pass"
+					value="" placeholder="Password" style="width:320px" />
+			</div>
+			<button onclick="return validate()">Login</button>
 			<!-- <input type="submit" value="Submit">Login -->
 		</form>
 	</div>
