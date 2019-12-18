@@ -170,7 +170,7 @@ function populateShowings() {
 
     var styleElem = document.head.appendChild(document.createElement("style"));
 
-    styleElem.innerHTML = "th, td {padding-right: 20px;}";
+    styleElem.innerHTML = "th, td {padding-right: 20px;} tr:nth-child(even) {background-color: #f2f2f2;}";
 
     var address = document.createTextNode(checkedListings[index].address);
     var lockbox = document.createTextNode(checkedListings[index].time);
